@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  --color-base-pink: #B52184;
+
+  --color-base-purple-700: #312D64;
+
+  --color-base-white: #FFFFFF;
+
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+  font-size: 1.6rem;
+}
+
+h1, h2 {
+  color: var(--color-base-pink);
+  font-weight: 800;
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+p {
+  color: var(--color-base-purple-700);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 auto;
+  max-width: 425px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0;
+  width: min(120rem, 100%);
+}
+
+#introduction .container {
+  display: grid;
+
+  grid-template-areas: "header-image" "title" "footer-image";
+  align-items: center;
+  justify-items: center;
+
+  text-align: center;
+
+  padding-bottom: 9rem;
+}
+
+#introduction .container img:first-child {
+  grid-area: header-image;
+  animation: appearAndExpand 1.5s;
+}
+
+#introduction .container > div {
+  grid-area: title;
+
+  margin-top: 1.6rem;
+}
+
+#introduction .container img:last-child {
+  grid-area: footer-image;
+
+  margin-top: 3.2rem;
+}
+
+#cards {
+  background: rgb(52,49,147);
+  background: linear-gradient(45deg, rgba(52,49,147,1) 0%, rgba(48,44,99,1) 100%);
+}
+
+#cards .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4.8rem;
+
+  padding: 5.6rem 4rem;
+}
+
+.card {
+  background-color: var(--color-base-white);
+
+  padding: 2.4rem;
+  border-radius: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.card img {
+  width: 8rem;
+}
+
+.card > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#contact .container {
+  padding: 4rem 6.2rem;
+}
+
+#contact .container h1 {
+  margin-bottom: 4rem;
+}
+
+#contact .container form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+#contact .container input, #contact .container textarea{
+  width: 100%;
+  padding: 1.6rem;
+
+  border-radius: 1.6rem;
+  border: 2px solid var(--color-base-purple-700);
+
+  color: var(--color-base-purple-700);
+  font-weight: 600;
+}
+
+#contact .container input {
+  padding-left: 5rem;
+}
+
+#contact .container textarea {
+  min-height: 12rem;
+}
+
+#contact .container input::placeholder, #contact .container textarea::placeholder{
+  color: var(--color-base-purple-700);
+  font-weight: 600;
+}
+
+#contact .container input:active, #contact .container textarea:active {
+  border-color: var(--color-base-pink);
+}
+
+#contact .container #name {
+  background-image: url("assets/person.svg");
+  background-repeat: no-repeat;
+  background-position: left 1.6rem center;
+}
+
+#contact .container #email {
+  background-image: url("assets/at.svg");
+  background-repeat: no-repeat;
+  background-position: left 1.6rem center;
+}
+
+#contact .container button {
+  background: rgb(52,49,147);
+  background: linear-gradient(45deg, rgba(52,49,147,1) 0%, rgba(48,44,99,1) 100%);
+
+  width: 15rem;
+  padding: 1.6rem;
+  border-radius: 1.6rem;
+
+  color: var(--color-base-white);
+  font-weight: 600;
+
+  transition: .3s;
+}
+
+#contact .container button:hover {
+  scale: 1.1;
+}
+
+#contact .container img {
+  display: none;
+}
+
+footer {
+  background: rgb(52,49,147);
+  background: linear-gradient(45deg, rgba(52,49,147,1) 0%, rgba(48,44,99,1) 100%);
+
+  height: 8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p {
+  color: var(--color-base-white);
+  text-align: center;
+  font-weight: 600;
+}
+
+@keyframes appearAndExpand {
+  from {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 1440px) {
+  #app {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  #app section {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 3.6rem;
+  }
+
+  p {
+    font-size: 2rem;
+  }
+
+  #introduction .container {
+    grid-template-areas: "title header-image" "footer-image header-image";
+    justify-items: start;
+
+    column-gap: 2.4rem;
+  }
+
+  #introduction .container img:first-child {
+    width: 100%;
+  }
+
+  #introduction .container div h1 {
+    font-size: 6rem;
+    text-align: left;
+  }
+
+  #introduction .container div p {
+    font-size: 3.2rem;
+    text-align: left;
+
+  }
+
+  #cards .container {
+    grid-template-columns: repeat(3, auto);
+    gap: 2.4rem;
+
+    padding-inline: 0;
+    justify-content: space-between;
+  }
+
+  .card {
+    max-width: 36rem;
+    padding: 3.2rem;
+    gap: 4rem;
+  }
+
+  .card img {
+    width: 10rem;
+  }
+
+  #contact {
+    position: relative;
+    height: 61.2rem;
+  }
+
+  #contact .container {
+    height: 100%;
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 0;
+  }
+
+  #contact .container h1 {
+    font-size: 4.2rem;
+  }
+
+  #contact .container img {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .form {
+    width: 60rem;
+  }
+}
